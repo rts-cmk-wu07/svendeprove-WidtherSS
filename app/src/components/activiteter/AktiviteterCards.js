@@ -32,7 +32,7 @@ const AktiviteterCard = () => {
   return (
     <div>
       <h1 className='text-white font-normal pl-9 pt-9 text-4xl'>Aktiviteter</h1>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center pl-3 pr-3">
         {activities.map((activity) => (
           <Link key={activity.id} to={{pathname: `/aktivitetsdetaljer/${activity.id}`, state: {activity: activity}}} className="relative w-[356px] h-[344px] rounded-l-[40px] rounded-tr-[40px] overflow-hidden shadow-lg m-4">
             <img src={activity.asset.url} alt={activity.url} className="w-full h-full object-cover" />
@@ -46,7 +46,7 @@ const AktiviteterCard = () => {
       {!isLoggedIn && showAlert && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-lg">
-            <p className="mb-4">It would be better to log in. Do you want to log in now?</p>
+            <p className="mb-4">Det ville være bedre at logge ind. Vil du logge ind nu?</p>
             <div className="flex justify-between">
               <button onClick={handleLoginClick} className="bg-purple-600 text-white px-4 py-2 rounded">Log in</button>
               <button onClick={handleCancelClick} className="bg-gray-300 text-black px-4 py-2 rounded">Cancel</button>
