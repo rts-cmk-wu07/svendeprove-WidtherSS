@@ -1,18 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import splash from "../assests/splash-image.jpg"
 import axios from 'axios';
 import { useAuthContext } from '../AuthProvider';
-// Adjust the path based on the location of AuthContext.js
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = (props) => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const { setIsLoggedIn } = useAuthContext();
-
+    const { setIsLoggedIn, setUser } = useAuthContext();
 
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -22,7 +21,6 @@ const Login = (props) => {
         setPassword(value);
       }
     };
-
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -40,6 +38,12 @@ const Login = (props) => {
           // Update the isLoggedIn state
           setIsLoggedIn(true);
 
+          // Set user object with role property
+          setUser({ role: response.data.role });
+
+          // Display the welcome message based on the user's role
+          toast.success(`Velkommen, ${username}! Du er logget ind som ${response.data.role}.`);
+
           // Redirect the user to the Welcome page
           navigate('/');
         } else {
@@ -50,7 +54,6 @@ const Login = (props) => {
         setError('An error occurred while logging in');
       }
     };
-
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">

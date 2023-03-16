@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import UseScrollAlert from '../UseScrollAlert';
 import { useAuthContext } from '../AuthProvider';
 
-
 const AktiviteterCard = () => {
   const [activities, setActivities] = useState([]);
   const [showAlert, setShowAlert] = UseScrollAlert();
@@ -29,6 +28,8 @@ const AktiviteterCard = () => {
     setShowAlert(false);
   };
 
+
+
   return (
     <div>
       <h1 className='text-white font-normal pl-9 pt-9 text-4xl'>Aktiviteter</h1>
@@ -44,7 +45,7 @@ const AktiviteterCard = () => {
         ))}
       </div>
       {!isLoggedIn && showAlert && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-75  z-50">
           <div className="bg-white p-6 rounded-lg">
             <p className="mb-4">Det ville være bedre at logge ind. Vil du logge ind nu?</p>
             <div className="flex justify-between">

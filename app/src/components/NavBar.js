@@ -12,7 +12,7 @@ const NavBar = () => {
           <Link to={"/search"} className="border border-black rounded-full p-2 ml-5">
             <FaSearch className="text-black text-2xl" />
           </Link>
-          <Link className="border border-black rounded-full p-2 ml-5">
+          <Link to={"/calandar"} className="border border-black rounded-full p-2 ml-5">
             <FaCalendar className="text-black text-2xl" />
           </Link>
         </div>
