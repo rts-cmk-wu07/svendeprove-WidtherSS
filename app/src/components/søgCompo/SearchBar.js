@@ -15,8 +15,7 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Søg for activiteter..."
         className="w-full p-3 bg-gray-400 bg-opacity-30 text-white rounded"
         value={searchTerm}
-        onChange={handleChange}
-         />
+        onChange={handleChange}/>
     </div>
   );
 };

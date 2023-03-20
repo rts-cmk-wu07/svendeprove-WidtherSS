@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CalendarDefault from './CalendarDefault';
 import CalendarTeamOverview from './CalendarTeamOverview';
-import { useAuthContext } from '../AuthProvider';
+import { TokenContext} from '../TokenProvider';
 
 const Calendar = () => {
-  const { user } = useAuthContext();
+  const { isLoggedIn, user } = useContext(TokenContext);
 
-  if (user && user.role === 'instructor') {
+if (user && user.role === 'instructor') {
     return <CalendarTeamOverview/> ;
   } else {
     return <CalendarDefault />;
   }
-};
 
+
+console.log(user)
+};
 export default Calendar;
