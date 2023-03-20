@@ -8,7 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Slide } from 'react-reveal';
 import { css } from '@emotion/react';
 import ClipLoader from "react-spinners/ClipLoader";
-import Cookies from 'js-cookie';
+
+
 
 
 
@@ -55,7 +56,7 @@ const Login = (props) => {
         setUser( response.data );
 
         // Display the welcome message based on the user's role
-        toast.success(`Velkommen, ${username}! Du er logget ind som ${response.data}.`);
+        toast.success(`Velkommen, ${username}! Du er logget ind som ${response.data.userId}.`);
 
         // Redirect the user to the Welcome page
         navigate('/');
@@ -75,8 +76,8 @@ const Login = (props) => {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
+      <div className="absolute  transform -translate-x-1/2 -translate-y-1/2 p-8 rounded-lg shadow-lg bg-purple-900 bg-opacity-50 " style={{ width: '800px', height: '479.94px', transform: 'rotate(-27.19deg)'}}></div>
       <Slide top duration={1000} delay={500} distance="30px">
-        <div className="absolute  transform -translate-x-1/2 -translate-y-1/2 p-8 rounded-lg shadow-lg bg-purple-900 bg-opacity-50 " style={{ width: '800px', height: '479.94px', transform: 'rotate(-27.19deg)' }}></div>
         <img src={splash} alt="" className="h-full w-full object-cover" />
         <div className="absolute z-10 p-8 rounded-lg shadow">
           <h1 className="text-5xl font-normal mb-4 text-white">Log ind</h1>

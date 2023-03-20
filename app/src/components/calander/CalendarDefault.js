@@ -88,3 +88,4 @@ console.log(activities);
 };
 
 export default CalendarDefault;
+

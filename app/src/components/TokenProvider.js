@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { ToastContainer } from 'react-toastify';
+import Cookies from 'js-cookie';
+
 
 export const TokenContext = createContext(null);
 
@@ -21,7 +23,7 @@ const TokenProvider = ({ children }) => {
     if (isLoggedIn) {
       const token = localStorage.getItem("authToken");
       const storedUser = localStorage.getItem("user");
-      const storedUserId = localStorage.getItem("userId"); 
+      const storedUserId = localStorage.getItem("userId");
 
       if (token && storedUser && storedUserId && storedUser !== "undefined") {
         const userObj = JSON.parse(storedUser);

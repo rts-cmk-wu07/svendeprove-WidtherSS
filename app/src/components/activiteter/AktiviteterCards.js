@@ -40,7 +40,7 @@ const AktiviteterCard = () => {
           {activities.map((activity) => (
             <Link key={activity.id} to={{pathname: `/aktivitetsdetaljer/${activity.id}`, state: {activity: activity}}} className="relative w-[356px] h-[344px] rounded-l-[40px] rounded-tr-[40px] overflow-hidden shadow-lg m-4">
               <img src={activity.asset.url} alt={activity.url} className="w-full h-full object-cover" />
-              <div className="absolute bottom-0 w-full px-6 py-4 bg-purple-300 bg-opacity-80 z-10 h-[96px]">
+              <div className="absolute bottom-0 w-full px-6 py-4 bg-purple-300 rounded-tr-[40px]  rounded-bl-lg bg-opacity-80 z-10 h-[96px]">
                 <div className="font-normal text-black text-lg mb-2 ">{activity.name}</div>
                 <p className="text-black font-normal text-lg">{activity.minAge}-{activity.maxAge} år</p>
               </div>
